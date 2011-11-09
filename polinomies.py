@@ -11,15 +11,16 @@ class Polynomies():
         self.coeficientes = coeficientes
     
     def derivar(self):
-        self.derivada = [x*(i+1) for i,x in enumerate(self.coeficientes[1:])]
+        self.derivada = Polynomies([x*(i+1) for i,x in
+            enumerate(self.coeficientes[1:])])
 
     def get_derivada(self):
         self.derivar()
         return self.derivada
 
     def integrar(self):
-        self.integral = [0] + [float(x)/(i+1)
-            for i, x in enumerate(self.coeficientes)]
+        self.integral = Polynomies([0] + [float(x)/(i+1)
+            for i, x in enumerate(self.coeficientes)])
 
     def get_integral(self):
         self.integrar()
@@ -61,9 +62,9 @@ class Polynomies():
 def main():
     polinomio = Polynomies([2,-3,1])
     print 'polinomio: ', polinomio
-    der = Polynomies(polinomio.get_derivada())
+    der = polinomio.get_derivada()
     print 'derivada: ', der
-    inte = Polynomies(polinomio.get_integral())
+    inte = polinomio.get_integral()
     print 'integral: ', inte
     valor = raw_input('ingrese valor a evaluar: ')
     print 'polinomio evaluado en %s: %s' % (valor, polinomio.evaluar(float(valor)))
