@@ -97,27 +97,27 @@ class Polinomio():
         poly = []
         polytoshow = ''
         coef = self.coeficientes
-        for i, x in enumerate(coef):
-            if x and x != 1:
-                if i == 1:
-                    elem = '%sX' % (x,)
-                elif i == 0:
-                    elem = '%s' % (x,)
+        for grado, coef in enumerate(coef):
+            if coef and coef != 1:
+                if grado == 1:
+                    elem = '%sX' % (coef,)
+                elif grado == 0:
+                    elem = '%s' % (coef,)
                 else:
-                    elem = '%sX^%s' % (x, i)
+                    elem = '%sX^%s' % (coef, grado)
                 poly.append(elem)
-            elif x == 1:
-                if i == 1:
+            elif coef == 1:
+                if grado == 1:
                     elem = 'X'
-                elif i == 0:
-                    elem = '%s' % (x,)
+                elif grado == 0:
+                    elem = '%s' % (coef,)
                 else:
-                    elem = 'X^%s' % (i,)
+                    elem = 'X^%s' % (grado,)
                 poly.append(elem)
         poly.reverse()
         for elem in poly:
             if elem.startswith('-'):
-                polytoshow = polytoshow[:-2] + elem + '+ '
+                polytoshow = polytoshow[:-1] + elem + '+'
             else:
-                polytoshow = polytoshow + elem + '+ '
-        return polytoshow[:-2]
+                polytoshow = polytoshow + elem + '+'
+        return polytoshow[:-1]
