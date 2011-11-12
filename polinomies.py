@@ -8,10 +8,27 @@
 
 class Polinomio():
 
-    def __init__(self, coeficientes=[]):
+    def __init__(self, args=[]):
         """Inicializa los coeficientes del polinomio.
         Es en orden ascendente, es decir [A0, A1, A2,...,An]"""
-        self.coeficientes = coeficientes[:]
+        if type(args) == type([]):
+            if args:
+                self.coeficientes = args[:]
+            else:
+                self.coeficientes = []
+                self.generar(1)
+        else:
+            try:
+                self.coeficientes = []
+                self.generar(args)
+            except TypeError:
+                print 'Argumentos invalidos(lista o número del grado)'
+
+    def generar(self, grado):
+        self.coeficientes = [0] * grado + [-1, 1]
+
+    def aumenta_grado(self):
+        self.coeficientes = [0] + self.coeficientes
 
     def derivar(self):
         """Deriva el polinomio"""
@@ -117,7 +134,10 @@ class Polinomio():
         poly.reverse()
         for elem in poly:
             if elem.startswith('-'):
-                polytoshow = polytoshow[:-1] + elem + '+'
+                if elem.startswith('-1X'):
+                    polytoshow = polytoshow[:-1] + elem.replace('1', '') + '+'
+                else:
+                    polytoshow = polytoshow[:-1] + elem + '+'
             else:
                 polytoshow = polytoshow + elem + '+'
         return polytoshow[:-1]
