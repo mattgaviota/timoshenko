@@ -9,8 +9,14 @@
 class Polinomio():
 
     def __init__(self, args=[]):
-        """Inicializa los coeficientes del polinomio.
-        Es en orden ascendente, es decir [A0, A1, A2,...,An]"""
+        """Inicializa los coeficientes del polinomio si args es una lista,
+        la lista debe representar un polinomio en orden ascendente en el que
+        solo se pasa los coeficientes del mismo, para obtener el polinomio
+        deseado este debe estar completo, es decir [A0, A1, A2,...,An]
+        Si args es un número se genera un polinomio de la forma X^N(X-1)
+        donde N es args y usa el metodo generar.
+        Si no se le pasa parametros se genera un polinomio de la forma
+        X(X-1)"""
         if type(args) == type([]):
             if args:
                 self.coeficientes = args[:]
@@ -25,9 +31,12 @@ class Polinomio():
                 print 'Argumentos invalidos(lista o número del grado)'
 
     def generar(self, grado):
+        """Genera un polinomio de la forma X^N(X-1) donde N es un
+        parametro opcional al generar el Polinomio"""
         self.coeficientes = [0] * grado + [-1, 1]
 
     def aumenta_grado(self):
+        """Aumenta el grado del polinomio"""
         self.coeficientes = [0] + self.coeficientes
 
     def derivar(self):
