@@ -54,6 +54,10 @@ class Polinomio():
         self.integral = Polinomio([0] + [float(x) / (i + 1)
             for i, x in enumerate(self.coeficientes)])
 
+    def integral_definida(self, a, b):
+        self.integrar()
+        return self.integral(b) - self.integral(a)
+
     def get_integral(self):
         """Retorna la integral del polinomio como otro polinomio"""
         self.integrar()
