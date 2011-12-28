@@ -25,8 +25,8 @@ class Matriz():
 
     def fill_matriz(self):
         """Falta implementar"""
-        self.matriz_a[0,0] = self.sub_matrices(kaa1)
-        self.matriz_a[0,1] = self.matriz_a[1,0] = self.sub_matrices(kab1)
+        self.matriz_a[0,0] = self.sub_matrices(self.kaa1)
+        self.matriz_a[0,1] = self.matriz_a[1,0] = self.sub_matrices(self.kab1)
 
     def sub_matrices(self, func):
         """Falta implementar"""

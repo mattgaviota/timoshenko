@@ -9,7 +9,7 @@
 class Polinomio():
 
     def __init__(self, args=[]):
-        """Inicializa los coeficientes del polinomio si args es una lista,
+        """Inicializa los coeficientes del polinomio. Si args es una lista,
         la lista debe representar un polinomio en orden ascendente en el que
         solo se pasa los coeficientes del mismo, para obtener el polinomio
         deseado este debe estar completo, es decir [A0, A1, A2,...,An]
@@ -21,8 +21,7 @@ class Polinomio():
             if args:
                 self.coeficientes = args[:]
             else:
-                self.coeficientes = []
-                self.generar(1)
+                self.coeficientes = [0]
         else:
             try:
                 self.coeficientes = []
