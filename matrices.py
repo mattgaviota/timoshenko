@@ -28,10 +28,12 @@ CONDICIONES_BORDE = {
 
 class Matriz():
 
-    def __init__(self, size=6, value=4, borde=1):
-        self.matriz_k = ln.linalg.zeros((size,size)) # TODO : arreglar esto
-        self.matriz_m = ln.linalg.zeros((size,size))
+    def __init__(self, size=5, value=4, borde=1):
+        matrix_size = size ** 2
+        self.matriz_k = ln.linalg.zeros((matrix_size,matrix_size)) # TODO : arreglar esto
+        self.matriz_m = ln.linalg.zeros((matrix_size,matrix_size))
         self.value = value
+        self.size = size
         self.genera_polinomios(borde, value)
         self.fill_matriz()
 
@@ -55,12 +57,13 @@ class Matriz():
     def fill_matriz(self):
         """Llena la matriz con los valores relevantes"""
 
+        n = self.size
         # Matriz K de rigidez
 
-        self.matriz_k[0,0] = self.sub_matrices(self.kaa1)
-        self.matriz_k[0,1] = self.matriz_k[1,0] = self.sub_matrices(self.kab1)
-        self.matriz_k[1,1] = self.sub_matrices(self.kbb1)
-        self.matriz_k[1,4] = self.matriz_k[4,1] = self.sub_matrices(self.lb1_lambda2)
+        self.matriz_k[0:n,0:n] = self.sub_matrices(self.kaa1)
+        self.matriz_k[n:2 * n,n:n] = self.matriz_k[n:n,n:2 * n] = self.sub_matrices(self.kab1)
+        self.matriz_k[2 * n:n,2 * n:n] = self.sub_matrices(self.kbb1)
+        self.matriz_k[n:2 * n,4 * n:n * n] = self.matriz_k[n * n:,1] = self.sub_matrices(self.lb1_lambda2)
         self.matriz_k[2,2] = self.sub_matrices(self.kaa2)
         self.matriz_k[2,3] = self.matriz_k[3,2] = self.sub_matrices(self.kab2)
         self.matriz_k[3,3] = self.sub_matrices(self.kbb2)
