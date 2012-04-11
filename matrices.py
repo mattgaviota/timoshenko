@@ -10,7 +10,16 @@ from numpy import linalg as ln
 
 # constantes
 
-cl = y = l = r = R1 = Rc = R2 = T1 = Tc = T2 = 1.0
+cl = 0.5
+y = 1.5
+l = 1.0
+r = 0.02887 
+R1 = 0.0
+Rc = 0.0
+R2 = 0.0
+T1 = 0.0
+Tc = 0.0
+T2 = 1.0
 ylr = y * (l / r) ** 2
 rl = (r / l) ** 2
 
@@ -35,7 +44,7 @@ class Matriz():
         self.value = value
         self.size = size
         self.genera_polinomios(borde, value)
-        self.fill_matriz()
+        #self.fill_matriz()
 
     def genera_polinomios(self, borde, value):
         """Genera los polinomios de acuerdo a las condiciones de
