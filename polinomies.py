@@ -53,7 +53,7 @@ class Polinomio():
 
     def evaluar(self, valor):
         """Metodo para evaluear el polinomio"""
-        return sum([x * valor ** i for i, x in enumerate(self.coeficientes)])
+        return sum([x * float(valor) ** i for i, x in enumerate(self.coeficientes)])
 
     def __add__(self, other):
         """Sobrecarga de la suma.

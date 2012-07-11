@@ -1,0 +1,423 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+\usepackage{latexsym}
+
+\topmargin 0mm
+\oddsidemargin 5mm
+\evensidemargin 5mm
+\textwidth 150mm
+\textheight 662.801 pt
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding latin1
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\family sans
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[14pt]
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%% Insertar el título de la contribución %%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Soluciones a problemas de vibración de elementos estructurales con restricciones
+ elásticas
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%% Nombres de los autores y sus respectivas filiaciones: %%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size footnotesize
+Matías Novoa
+\begin_inset Formula $^{a}$
+\end_inset
+
+, Nilsa Sarmiento
+\begin_inset Formula $^{b}$
+\end_inset
+
+ y Antonio Sángari
+\begin_inset Formula $^{c}$
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[14pt]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size footnotesize
+\begin_inset Formula $^{a}$
+\end_inset
+
+Universidad Nacional de Salta 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[3mm]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size footnotesize
+\begin_inset Formula $^{b}$
+\end_inset
+
+Universidad Nacional de Salta 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[3mm]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size footnotesize
+\begin_inset Formula $^{c}$
+\end_inset
+
+Universidad Nacional de Salta 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[3mm]
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size normal
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%  Insertar el resumen %%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%  Por favor, no usar símbolos o fuentes no estandard.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Al plantear el problema de contorno y autovalores que describe el comportamiento
+ dinámico de vigas y placas con discontinuidades en puntos intermedios,
+ surge que el mismo carece de solución clásica, debiéndose determinar una
+ solución débil.
+ La presencia de rótulas y de restricciones elásticas en puntos intermedios
+ genera condiciones cuyas expresiones analíticas son totalmente análogas
+ a las de las condiciones de contorno.
+ En este trabajo se muestra la aplicación de las técnicas del cálculo de
+ variaciones, a los problemas de contorno y autovalores que describen el
+ comportamiento dinámico de las vigas y placas mencionadas.
+ Además se presentan valores de los coeficientes de frecuencias de vibración
+ y se muestran las formas modales respectivas mediante el tratamiento moderno
+ de los métodos de Ritz-Galerkin y Multiplicadores de Lagrange para obtener
+ los autovalores aproximados.
+ Por otra parte, se dan detalles de la implementación de un programa desarrollad
+o con software libre (Python) para la resolución de dichos cálculos, esto
+ buscando una forma rápida, de bajo coste y completamente amoldada a las
+ necesidades del problema.
+\end_layout
+
+\begin_layout Standard
+
+\size normal
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%   Bibliografía
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%% Ejemplo de formato:
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring Referencias
+
+\size small
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "QG"
+
+\end_inset
+
+ V Quintana y R Grossi, Eigenfrequencies of generally restrained Timoshenko
+ beams, Journal of Multi-body Dynamics.
+\begin_inset space \space{}
+\end_inset
+
+
+\series bold
+224(1)
+\series default
+ (2010), 117-125.
+\end_layout
+
+\end_body
+\end_document

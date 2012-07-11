@@ -1,0 +1,93 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt,spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+
+\usepackage{latexsym}
+
+\topmargin 0mm
+\oddsidemargin 5mm
+\evensidemargin 5mm
+\textwidth 150mm
+\textheight 662.801 pt
+
+
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+\begin{center}
+\textsf{~\\[14pt] %%%%%% Insertar el título de la contribución %%%%%%%
+Soluciones a problemas de vibración de elementos estructurales con
+restricciones elásticas}
+\par\end{center}
+
+%%%%%% Nombres de los autores y sus respectivas filiaciones: %%%%%%
+
+
+{\footnotesize { }{\footnotesize \par}
+
+\begin{center}
+{\footnotesize Matías Novoa$^{a}$, Nilsa Sarmiento$^{b}$ y Antonio
+Sángari$^{c}$\\[14pt]}
+\par\end{center}{\footnotesize \par}
+
+\begin{center}
+{\footnotesize $^{a}$Universidad Nacional de Salta \\[3mm]}
+\par\end{center}{\footnotesize \par}
+
+\begin{center}
+{\footnotesize $^{b}$Universidad Nacional de Salta \\[3mm]}
+\par\end{center}{\footnotesize \par}
+
+\begin{center}
+{\footnotesize $^{c}$Universidad Nacional de Salta \\[3mm] }
+\par\end{center}{\footnotesize \par}
+
+{\footnotesize }}{\footnotesize \par}
+
+%%%%%%%  Insertar el resumen %%%%%%
+ %%%%%%%%%  Por favor, no usar símbolos o fuentes no estandard.
+Al plantear el problema de contorno y autovalores que describe el
+comportamiento dinámico de vigas y placas con discontinuidades en
+puntos intermedios, surge que el mismo carece de solución clásica,
+debiéndose determinar una solución débil. La presencia de rótulas
+y de restricciones elásticas en puntos intermedios genera condiciones
+cuyas expresiones analíticas son totalmente análogas a las de las
+condiciones de contorno. En este trabajo se muestra la aplicación
+de las técnicas del cálculo de variaciones, a los problemas de contorno
+y autovalores que describen el comportamiento dinámico de las vigas
+y placas mencionadas. Además se presentan valores de los coeficientes
+de frecuencias de vibración y se muestran las formas modales respectivas
+mediante el tratamiento moderno de los métodos de Ritz-Galerkin y
+Multiplicadores de Lagrange para obtener los autovalores aproximados.
+Por otra parte, se dan detalles de la implementación de un programa
+desarrollado con software libre (Python) para la resolución de dichos
+cálculos, esto buscando una forma rápida, de bajo coste y completamente
+amoldada a las necesidades del problema.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Bibliografía
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+{\small %%%%% Ejemplo de formato:
+}{\small \par}
+\begin{thebibliography}{Referencias}
+{\small \bibitem{QG} V Quintana y R Grossi, Eigenfrequencies of generally
+restrained Timoshenko beams, Journal of Multi-body Dynamics.\ }\textbf{\small 224(1)}{\small{}
+(2010), 117-125.}\end{thebibliography}
+
+\end{document}

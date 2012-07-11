@@ -11,46 +11,49 @@ from numpy import linalg as ln
 # constantes
 
 cl = 0.5
-y = 1.5
+y = 0.2 #y= gamma
 l = 1.0
-r = 0.02887 
+r = 0.02886751345948129 #r=alpha/12^0.5; con alpha= 0.1
 R1 = 0.0
 Rc = 0.0
 R2 = 0.0
 T1 = 0.0
 Tc = 0.0
-T2 = 1.0
+T2 = 10
 ylr = y * (l / r) ** 2
 rl = (r / l) ** 2
 
 # Condiciones de borde
 
 CONDICIONES_BORDE = {
-                1: ([1], [0, 1], [1], [-1, 1]),
-                2: ([1], [0, 1], [1], [1]),
-                3: ([1], [1], [1], [1]),
-                4: ([0, 1], [0, 1], [-1, 1], [-1, 1]),
-                5: ([0, 1], [0, 1], [1], [-1, 1]),
-                6: ([0, 1], [0, 1], [1], [1])
+                1: ([1], [0, 1], [1], [-1, 1]), # S-S
+                2: ([1], [0, 1], [1], [1]), # S-F
+                3: ([1], [1], [1], [1]), # F-F
+                4: ([0, 1], [0, 1], [-1, 1], [-1, 1]), # C-C
+                5: ([0, 1], [0, 1], [1], [-1, 1]), # C-S
+                6: ([0, 1], [0, 1], [1], [1]) # C-F
 }
 
 
 class Matriz():
 
-    def __init__(self, size=5, value=4, borde=1):
+    def __init__(self, size=5, value=4, borde=[2, 5, 6, 5]):
         matrix_size = size ** 2
         self.matriz_k = ln.linalg.zeros((matrix_size,matrix_size)) # TODO : arreglar esto
         self.matriz_m = ln.linalg.zeros((matrix_size,matrix_size))
         self.value = value
         self.size = size
         self.genera_polinomios(borde, value)
-        #self.fill_matriz()
+        
 
     def genera_polinomios(self, borde, value):
         """Genera los polinomios de acuerdo a las condiciones de
         borde que se ingrese"""
         try:
-            p1, q1, p2, q2 = CONDICIONES_BORDE[borde]
+            p1 = CONDICIONES_BORDE[borde[0]][0]
+            q1 = CONDICIONES_BORDE[borde[1]][0]
+            p2 = CONDICIONES_BORDE[borde[2]][1]
+            q2 = CONDICIONES_BORDE[borde[3]][1]
             self.polinomios_p1 = [Polinomio(p1).aumenta_grado(x)
                 for x in xrange(value)]
             self.polinomios_q1 = [Polinomio(q1).aumenta_grado(x)
@@ -62,44 +65,6 @@ class Matriz():
 
         except ValueError:
             print 'Condiciones de borde erroneas(1 - 6)'
-
-    def fill_matriz(self):
-        """Llena la matriz con los valores relevantes"""
-
-        n = self.size
-        # Matriz K de rigidez
-
-        self.matriz_k[0:n,0:n] = self.sub_matrices(self.kaa1)
-        self.matriz_k[n:2 * n,n:n] = self.matriz_k[n:n,n:2 * n] = self.sub_matrices(self.kab1)
-        self.matriz_k[2 * n:n,2 * n:n] = self.sub_matrices(self.kbb1)
-        self.matriz_k[n:2 * n,4 * n:n * n] = self.matriz_k[n * n:,1] = self.sub_matrices(self.lb1_lambda2)
-        self.matriz_k[2,2] = self.sub_matrices(self.kaa2)
-        self.matriz_k[2,3] = self.matriz_k[3,2] = self.sub_matrices(self.kab2)
-        self.matriz_k[3,3] = self.sub_matrices(self.kbb2)
-        self.matriz_k[3,4] = self.matriz_k[4,3] = self.sub_matrices(self.lb2_lambda2)
-
-        # Matriz M de masa
-
-        self.matriz_m[0,0] = self.sub_matrices(self.maa1)
-        self.matriz_m[1,1] = self.sub_matrices(self.mbb1)
-        self.matriz_m[2,2] = self.sub_matrices(self.maa2)
-        self.matriz_m[3,3] = self.sub_matrices(self.mbb2)
-
-    def sub_matrices(self, func):
-        """Falta implementar"""
-        matriz = []
-        try:
-            for i in range(self.value):
-                filas = []
-                for j in range(self.value):
-                    filas.append(func(i,j))
-                matriz.append(filas)
-        except TypeError:
-            for i in range(self.value):
-                filas = [func(i)]
-                matriz.append(filas)
-        sub_matriz = np.matrix(matriz)
-        return sub_matriz
 
     def kaa1(self, i, m):
         p1i = self.polinomios_p1[i-1]
