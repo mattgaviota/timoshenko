@@ -10,10 +10,10 @@ from numpy import linalg as ln
 
 # constantes
 
-cl = 0.5
+cl = 0.3
 y = 0.2 #y= gamma
 l = 1.0
-r = 0.02886751345948129 #r=alpha/12^0.5; con alpha= 0.1
+r = 0.02886751346 #r=alpha/12^0.5; con alpha= 0.1
 R1 = 0.0
 Rc = 0.0
 R2 = 0.0
@@ -26,18 +26,18 @@ rl = (r / l) ** 2
 # Condiciones de borde
 
 CONDICIONES_BORDE = {
-                1: ([1], [0, 1], [1], [-1, 1]), # S-S
-                2: ([1], [0, 1], [1], [1]), # S-F
-                3: ([1], [1], [1], [1]), # F-F
-                4: ([0, 1], [0, 1], [-1, 1], [-1, 1]), # C-C
-                5: ([0, 1], [0, 1], [1], [-1, 1]), # C-S
-                6: ([0, 1], [0, 1], [1], [1]) # C-F
+                1: ([0, -0.3, 1], [0.3, -1.3, 1]), # S-S 
+                2: ([0, 1],[-0.3, 1]), # S-F 
+                3: ([0, 0, 1], [0.09, -0.6, 1]), # C-F 
+                4: ([0, 0, -0.3, 1], [-0.09, 0.69, 1.6, 1]), # C-S 
+                5: ([1],[1]), # F-F 
+                6: ([0.3, -1], [1, -1]) # F-S 
 }
 
 
 class Matriz():
 
-    def __init__(self, size=5, value=4, borde=[2, 5, 6, 5]):
+    def __init__(self, size=7, value=7, borde=[2, 5, 6, 5]):
         matrix_size = size ** 2
         self.matriz_k = ln.linalg.zeros((matrix_size,matrix_size)) # TODO : arreglar esto
         self.matriz_m = ln.linalg.zeros((matrix_size,matrix_size))
