@@ -11,9 +11,9 @@ from numpy import linalg as ln
 # constantes
 
 cl = 0.3
-y = 0.2 #y= gamma
+y = 0.2 # y = gamma
 l = 1.0
-r = 0.02886751346 #r=alpha/12^0.5; con alpha= 0.1
+r = 0.02886751346 # r = alpha / 12 ^ 0.5; con alpha = 0.1
 R1 = 0.0
 Rc = 0.0
 R2 = 0.0
@@ -86,14 +86,14 @@ class Matriz():
         return -1 * integ.integral_definida(0, cl)
 
     def kbb1(self, j, n):
-        q1j = self.polinomios_q1[i-1]
-        q1n = self.polinomios_q1[m-1]
+        q1j = self.polinomios_q1[j-1]
+        q1n = self.polinomios_q1[n-1]
         dq1j = q1j.get_derivada()
         dq1n = q1n.get_derivada()
         prod_der = dq1j * dq1n
         integ =  prod_der * ylr
         intdef = integ.integral_definida(0, cl)
-        return intdef + (Tl * q1j(0) * q1n(0)) + (Tc * q1j(cl) * q1n(cl))
+        return intdef + (T1 * q1j(0) * q1n(0)) + (Tc * q1j(cl) * q1n(cl))
 
     def la1_lambda1(self, i):
         pi = self.polinomios_p1[i-1]
@@ -122,10 +122,10 @@ class Matriz():
         return -1 * integ.integral_definida(cl, 1)
 
     def kbb2(self, j, n):
-        q2j = self.polinomios_q2[i-1]
-        q2n = self.polinomios_q2[m-1]
-        dq2j = qj.get_derivada()
-        dq2n = qn.get_derivada()
+        q2j = self.polinomios_q2[j-1]
+        q2n = self.polinomios_q2[n-1]
+        dq2j = q2j.get_derivada()
+        dq2n = q2n.get_derivada()
         prod_der = dq2j * dq2n
         integ =  prod_der * ylr
         intdef = integ.integral_definida(cl, 1)
