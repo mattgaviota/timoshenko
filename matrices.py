@@ -10,8 +10,11 @@ from numpy import linalg as ln
 
 # constantes
 
+nu = 0.3
+alpha = 0.1
+ks = 5.0 / 6.0
 cl = 0.3
-y = 0.2 # y = gamma
+y = ks / (2 * (1.0 + nu)
 l = 1.0
 r = 0.02886751346 # r = alpha / 12 ^ 0.5; con alpha = 0.1
 R1 = 0.0
@@ -20,7 +23,7 @@ R2 = 0.0
 T1 = 0.0
 Tc = 0.0
 T2 = 10
-ylr = y * (l / r) ** 2
+ylr = y * ((l / r) ** 2)
 rl = (r / l) ** 2
 
 # Condiciones de borde
@@ -50,10 +53,10 @@ class Matriz():
         """Genera los polinomios de acuerdo a las condiciones de
         borde que se ingrese"""
         try:
-            p1 = CONDICIONES_BORDE[borde[0]][0]
-            q1 = CONDICIONES_BORDE[borde[1]][0]
-            p2 = CONDICIONES_BORDE[borde[2]][1]
-            q2 = CONDICIONES_BORDE[borde[3]][1]
+            q1 = CONDICIONES_BORDE[borde[0]][0]
+            p1 = CONDICIONES_BORDE[borde[1]][0]
+            q2 = CONDICIONES_BORDE[borde[2]][1]
+            p2 = CONDICIONES_BORDE[borde[3]][1]
             self.polinomios_p1 = [Polinomio(p1).aumenta_grado(x)
                 for x in xrange(value)]
             self.polinomios_q1 = [Polinomio(q1).aumenta_grado(x)
